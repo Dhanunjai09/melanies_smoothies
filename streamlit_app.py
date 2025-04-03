@@ -57,6 +57,5 @@ if ingredients_list:
                 #st.stop()
                 time_to_insert = st.button('Submit Order', key="submit_order_button")
                 if time_to_insert:
-                    try:
                         session.sql(my_insert_stmt, (ingredients_string, name_on_order)).collect()
                         st.success('Your Smoothie is ordered!', icon="✅")
