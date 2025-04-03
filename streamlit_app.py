@@ -26,7 +26,7 @@ my_dataframe = session.table("smoothies.public.fruit_options").select (col('FRUI
 
 # Convert the Snowpark Dataframe to a Pandas Dataframe so we can use the LOC function
 pd_df=my_dataframe.to_pandas()
-st.dataframe(pd_df)
+#st.dataframe(pd_df)
 #st.stop()
 
 ingredients_list = st.multiselect(
@@ -55,7 +55,7 @@ if ingredients_list:
 
                 #st.write(my_insert_stmt)
                 #st.stop()
-                time_to_insert = st.button('Submit Order', key="st1")
-                if time_to_insert:
-                        session.sql(my_insert_stmt,('ingredients_string', 'name_on_order')).collect()
-                        st.success('Your Smoothie is ordered!', icon="✅")
+        time_to_insert = st.button('Submit Order', key="st1")
+        if time_to_insert:
+                session.sql(my_insert_stmt,('ingredients_string', 'name_on_order')).collect()
+                st.success('Your Smoothie is ordered!', icon="✅")
